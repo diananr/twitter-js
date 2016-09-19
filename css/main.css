@@ -1,0 +1,24 @@
+form{
+	background-color: #19CF86;
+	padding: 1%;
+}
+textarea{
+	width: 90%;
+	height: 100px;
+}
+button{
+	background-color: #009999;
+	width: 6%;
+	height: 30px;
+	text-align: center;
+	border-radius: 10px 10px 10px 10px;
+	border: transparent;
+}
+#contenedor{
+	background-color: #77C7F7;
+}
+.tweets{
+	background-color: #F5F8FA;
+	margin: 4%;
+	padding: 2%;
+}
