@@ -1,24 +1,21 @@
+body{
+	background-color: #F5F8FA;
+}
 form{
-	background-color: #19CF86;
-	padding: 1%;
+	background-color: #E5F4F8;
 }
 textarea{
-	width: 90%;
-	height: 100px;
+	border-color: #BFE5ED;
+	resize: none;
 }
 button{
-	background-color: #009999;
-	width: 6%;
-	height: 30px;
-	text-align: center;
+	background-color: #2EABC6;
 	border-radius: 10px 10px 10px 10px;
 	border: transparent;
 }
-#contenedor{
-	background-color: #77C7F7;
-}
 .tweets{
-	background-color: #F5F8FA;
-	margin: 4%;
-	padding: 2%;
+	background-color: white;
+	margin: 1%;
+	padding: 1%;
+	border: 1px solid #E1E8ED;
 }
