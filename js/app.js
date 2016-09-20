@@ -10,12 +10,15 @@ window.addEventListener("load", function(){
 		cajaTexto.value = "";
 		conta.textContent = "140";
 		enviarTweet.disabled = true;
+
+		conta.classList.remove("amarillo");
+		conta.classList.remove("anaranjado");
+		conta.classList.remove("rojo");
 	});
 
 	cajaTexto.addEventListener("keyup", function(){
 			deshabilitarBoton(cajaTexto);
 			contadorCaracteres(cajaTexto);
-
 	});
 
 	function agregarTweet(texto){
@@ -38,5 +41,26 @@ window.addEventListener("load", function(){
 	function contadorCaracteres(texto){
 		var caracteres = texto.value.length;
 		conta.innerText = 140 - caracteres;
+
+		if(caracteres >= 120 && caracteres < 130){
+			conta.classList.add("amarillo");
+			conta.classList.remove("anaranjado");
+			conta.classList.remove("rojo");
+		}
+		else if(caracteres >=130 && caracteres < 141){
+			conta.classList.add("anaranjado");
+			conta.classList.remove("amarillo");
+			conta.classList.remove("rojo");
+		}
+		else if (caracteres >140) {
+			conta.classList.remove("amarillo");
+			conta.classList.remove("anaranjado");
+			conta.classList.add("rojo");
+		}
+		else{
+			conta.classList.remove("amarillo");
+			conta.classList.remove("anaranjado");
+			conta.classList.remove("rojo");
+		}
 	}
 });
