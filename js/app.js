@@ -16,11 +16,12 @@ window.addEventListener("load", function(){
 		conta.classList.remove("rojo");
 	});
 
-	cajaTexto.addEventListener("keyup", function(){
+	cajaTexto.addEventListener("keyup", function(e){
 			deshabilitarBoton(cajaTexto);
 			contadorCaracteres(cajaTexto);
+			var tecla = e.keyCode;
+			calcularEnters(tecla);
 	});
-
 	function agregarTweet(texto){
 		var newTweet = document.createElement("div");
 		newTweet.innerText = texto;
@@ -34,7 +35,7 @@ window.addEventListener("load", function(){
 		if(cText.value.length > 0){
 			enviarTweet.disabled = false;
 		}
-		else if(cText.value.length > 139 || cText.value.length == 0){
+		else if(cText.value.length > 140 || cText.value.length == 0){
 			enviarTweet.disabled = true;
 		}
 	}
@@ -63,4 +64,15 @@ window.addEventListener("load", function(){
 			conta.classList.remove("rojo");
 		}
 	}
+	function calcularEnters(tecla){
+		if(tecla == 13){
+			cajaTexto.rows +=1;
+		}
+		if(tecla == 8){
+			cajaTexto.rows -=1;
+			if(cajaTexto.rows < 3)
+			cajaTexto.rows = 2;
+		}
+	}
 });
+
