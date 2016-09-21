@@ -10,18 +10,17 @@ window.addEventListener("load", function(){
 		cajaTexto.value = "";
 		conta.textContent = "140";
 		enviarTweet.disabled = true;
-
-		conta.classList.remove("amarillo");
-		conta.classList.remove("anaranjado");
-		conta.classList.remove("rojo");
+		conta.style.color = "black";
+		cajaTexto.rows = 2;
 	});
-
 	cajaTexto.addEventListener("keyup", function(e){
 			deshabilitarBoton(cajaTexto);
 			contadorCaracteres(cajaTexto);
 			var tecla = e.keyCode;
 			calcularEnters(tecla);
+			tamañoContenedor(cajaTexto);
 	});
+
 	function agregarTweet(texto){
 		var newTweet = document.createElement("div");
 		newTweet.innerText = texto;
@@ -44,24 +43,16 @@ window.addEventListener("load", function(){
 		conta.innerText = 140 - caracteres;
 
 		if(caracteres >= 120 && caracteres < 130){
-			conta.classList.add("amarillo");
-			conta.classList.remove("anaranjado");
-			conta.classList.remove("rojo");
+			conta.style.color = "yellow";
 		}
 		else if(caracteres >=130 && caracteres < 141){
-			conta.classList.add("anaranjado");
-			conta.classList.remove("amarillo");
-			conta.classList.remove("rojo");
+			conta.style.color = "orange";
 		}
 		else if (caracteres >140) {
-			conta.classList.remove("amarillo");
-			conta.classList.remove("anaranjado");
-			conta.classList.add("rojo");
+			conta.style.color = "red";
 		}
 		else{
-			conta.classList.remove("amarillo");
-			conta.classList.remove("anaranjado");
-			conta.classList.remove("rojo");
+			conta.style.color = "black";
 		}
 	}
 	function calcularEnters(tecla){
@@ -74,5 +65,13 @@ window.addEventListener("load", function(){
 			cajaTexto.rows = 2;
 		}
 	}
+	function tamañoContenedor(cText){
+		if(cText.rows * cText.cols < cText.value.length){
+			cText.rows += 1;
+		}
+	}
 });
+/*
+
+*/
 
