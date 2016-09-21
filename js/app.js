@@ -29,6 +29,13 @@ window.addEventListener("load", function(){
 		contenedorTwets.insertBefore(newTweet, contenedorTwets.childNodes[0]);
 
 		newTweet.classList.add("tweets");
+
+		var fecha = new Date();
+		var hora = fecha.getHours();
+		var min = fecha.getMinutes();
+		var contenHora = document.createElement("div");
+		contenHora.innerText = hora + ":" + min;
+		newTweet.insertBefore(contenHora,newTweet.childNodes[0]);
 	}
 	function deshabilitarBoton(cText){
 		if(cText.value.length > 0){
