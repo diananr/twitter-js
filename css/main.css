@@ -1,13 +1,17 @@
 body{
-	background-color: #F5F8FA;
+	background-image: url(../img/fondo.jpg);
+	background-repeat: no-repeat;
+	background-size: 100%;
 }
 form{
 	background-color: #E5F4F8;
+	padding: 2%;
 }
 textarea{
 	border-color: #BFE5ED;
 	resize: none;
 	overflow: hidden;
+	padding: 1%;
 }
 button{
 	background-color: #2EABC6;

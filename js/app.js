@@ -2,7 +2,12 @@ window.addEventListener("load", function(){
 	
 	var enviarTweet = document.getElementById("btn");
 	var cajaTexto = document.getElementById("msj");
+	var contenedorTwets = document.getElementById("contenedor");
 	var conta = document.getElementById("contador");
+
+	cajaTexto.addEventListener("click", function(){
+		cajaTexto.rows = 3;
+	});
 
 	enviarTweet.addEventListener("click", function(e){
 		e.preventDefault();
@@ -11,7 +16,7 @@ window.addEventListener("load", function(){
 		conta.textContent = "140";
 		enviarTweet.disabled = true;
 		conta.style.color = "black";
-		cajaTexto.rows = 2;
+		cajaTexto.rows = 1;
 	});
 	cajaTexto.addEventListener("keyup", function(e){
 			deshabilitarBoton(cajaTexto);
@@ -25,7 +30,6 @@ window.addEventListener("load", function(){
 		var newTweet = document.createElement("div");
 		newTweet.innerText = texto;
 
-		var contenedorTwets = document.getElementById("contenedor");
 		contenedorTwets.insertBefore(newTweet, contenedorTwets.childNodes[0]);
 
 		newTweet.classList.add("tweets");
@@ -78,7 +82,3 @@ window.addEventListener("load", function(){
 		}
 	}
 });
-/*
-
-*/
-
