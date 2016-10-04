@@ -8,22 +8,25 @@ window.addEventListener("load", function(){
 	cajaTexto.addEventListener("click", function(){
 		cajaTexto.rows = 3;
 	});
-
-	enviarTweet.addEventListener("click", function(e){
-		e.preventDefault();
-		agregarTweet(cajaTexto.value);
-		cajaTexto.value = "";
-		conta.textContent = "140";
-		enviarTweet.disabled = true;
-		conta.style.color = "black";
-		cajaTexto.rows = 1;
-	});
 	cajaTexto.addEventListener("keyup", function(e){
 			deshabilitarBoton(cajaTexto);
 			contadorCaracteres(cajaTexto);
 			var tecla = e.keyCode;
 			calcularEnters(tecla);
 			tamañoContenedor(cajaTexto);
+	});
+	enviarTweet.addEventListener("click", function(e){
+		e.preventDefault();
+
+		if(cajaTexto.value.length <= 140 && cajaTexto.value.length > 0){
+			agregarTweet(cajaTexto.value.trim());
+			cajaTexto.value = "";
+			conta.textContent = "140";
+			conta.style.color = "black";
+			cajaTexto.rows = 1;
+		}
+
+		enviarTweet.disabled = true;
 	});
 
 	function agregarTweet(texto){
@@ -42,10 +45,10 @@ window.addEventListener("load", function(){
 		newTweet.insertBefore(contenHora,newTweet.childNodes[0]);
 	}
 	function deshabilitarBoton(cText){
-		if(cText.value.length > 0){
+		if(cajaTexto.value.length <= 140 && cajaTexto.value.length > 0){
 			enviarTweet.disabled = false;
 		}
-		else if(cText.value.length > 140 || cText.value.length == 0){
+		else if(cText.value.trim().length > 140 || cText.value.trim().length === 0){
 			enviarTweet.disabled = true;
 		}
 	}
@@ -54,7 +57,7 @@ window.addEventListener("load", function(){
 		conta.innerText = 140 - caracteres;
 
 		if(caracteres >= 120 && caracteres < 130){
-			conta.style.color = "yellow";
+			conta.style.color = "green";
 		}
 		else if(caracteres >=130 && caracteres < 141){
 			conta.style.color = "orange";
